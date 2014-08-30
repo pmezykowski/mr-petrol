@@ -58,6 +58,8 @@ public class CalculationFragmentMediator extends FragmentMediatorBase<Calculatio
     public void saveCurrentValues() {
         ConsumptionDataObject objectToSave = calculatorEngine.getStateObjectCopy();
         saveData(objectToSave);
+        calculatorEngine.clear();
+        refreshView();
     }
 
     private void saveData(ConsumptionDataObject objectToSave) {
