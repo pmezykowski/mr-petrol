@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pan Benzynka</string>
+    <string name="calculation_tab_header">Obliczanie</string>
+    <string name="history_tab_header">Historia</string>
+
+    <string name="preview_header">Spalanie</string>
+
+    <string name="save_toast_success">Zapisano</string>
+    <string name="save_toast_error">Błąd zapisu</string>
+
+    <string name="changeDate_btn_label">Zmień Datę</string>
+    <string name="save_btn_label">Zapisz obliczenia</string>
+
+    <string name="calc_gasVolume_label">Uzupełniono:</string>
+    <string name="calc_distance_label">Przejechano:</string>
+    <string name="calc_consumption_label">Spalanie:</string>
+    <string name="calc_price_label">Cena paliwa:</string>
+    <string name="calc_totalCost_label">Koszt:</string>
+
+    <string name="calc_gasVolume_unit">l</string>
+    <string name="calc_distance_unit">km</string>
+    <string name="calc_consumption_unit">l / 100km</string>
+    <string name="calc_price_unit">PLN / l</string>
+    <string name="calc_totalCost_unit">PLN</string>
+
+    <string name="list_gasVolume_unit">litrów</string>
+    <string name="list_distance_unit">km</string>
+    <string name="list_consumption_unit">l/100km</string>
+    <string name="list_price_unit">PLN/litr</string>
+    <string name="list_totalCost_unit">PLN</string>
+    
+    <string name="description_placeholder">Dodatkowy opis</string>
+    
+    <string name="edit">Edytuj</string>
+    <string name="delete">Usuń</string>
+</resources>

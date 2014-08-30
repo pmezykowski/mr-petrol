@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        style="@style/tile"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <CheckBox
+            android:id="@+id/checked_checkbox"
+            android:visibility="invisible"
+            android:focusable="false"
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_toRightOf="@id/checked_checkbox"
+            android:id="@+id/firstRow"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/item_distance"
+                    style="@style/history_list_value"
+                    android:text="321"/>
+                <TextView
+                    android:layout_below="@id/item_distance"
+                    style="@style/history_list_label"
+                    android:text="@string/list_distance_unit"/>
+                </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/item_gasVolume"
+                    style="@style/history_list_value"
+                    android:text="212.54"/>
+                <TextView
+                    android:layout_below="@id/item_gasVolume"
+                    style="@style/history_list_label"
+                    android:text="@string/list_gasVolume_unit"/>
+                </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/item_consumption"
+                    style="@style/history_list_value"
+                    android:text="7.44"/>
+                <TextView
+                    android:layout_below="@id/item_consumption"
+                    style="@style/history_list_label"
+                    android:text="@string/list_consumption_unit"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@id/firstRow"
+            android:layout_marginTop="10dp"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:background="#ff888d8c"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/calendarIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/ic_action"/>
+                <TextView
+                    android:layout_toRightOf="@id/calendarIcon"
+                    android:id="@+id/day_month"
+                    android:textSize="25sp"
+                    style="@style/history_list_value"
+                    android:textColor="#FFFFFF"
+                    android:text="03.11"/>
+                <TextView
+                    android:id="@+id/date_year"
+                    android:layout_toRightOf="@id/calendarIcon"
+                    android:layout_below="@id/day_month"
+                    android:textColor="#FFFFFF"
+                    style="@style/history_list_label"
+                    android:textSize="20sp"
+                    android:text="2014"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/item_price"
+                    style="@style/history_list_value"
+                    android:text="5.44"/>
+                <TextView
+                    android:layout_below="@id/item_price"
+                    style="@style/history_list_label"
+                    android:text="@string/list_price_unit"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/item_cost"
+                    style="@style/history_list_value"
+
+                    android:text="207.66"/>
+                <TextView
+                    android:layout_below="@id/item_cost"
+
+                    style="@style/history_list_label"
+                    android:text="@string/list_totalCost_unit"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_weight="0.3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

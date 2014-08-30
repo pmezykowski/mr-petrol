@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="calculation_view_label">
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="calculation_view_label.label" parent="calculation_view_label">
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="calculation_view_label.unit" parent="calculation_view_label">
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="calculation_view_clear_button">
+        <item name="android:gravity">right</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@android:drawable/ic_input_delete</item>
+    </style>
+
+    <style name="calculation_view_edit_text_value">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:textColor">@drawable/edit_text_selector</item>
+        <item name="android:ems">10</item>
+    </style>
+
+    <style name="calculation_view_table_row">
+        <item name="android:layout_gravity">right</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="description_text_box">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:ems">10</item>
+        <item name="android:textColor">@drawable/edit_text_selector</item>
+    </style>
+
+    <style name="tile">
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:background">@drawable/tile_shape</item>
+    </style>
+
+    <style name="tile_multiple_states" parent="tile">
+        <item name="android:background">@drawable/history_tile_selector</item>
+    </style>
+</resources>

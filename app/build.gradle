@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        // the latest version of the android-apt plugin
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.1'
+        classpath 'org.robolectric.gradle:gradle-android-test-plugin:0.10.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+apply plugin: 'android-apt'
+apply plugin: 'android-test'
+
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "mezykowski.p.simplefuelcalc"
+        minSdkVersion 8
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    sourceSets {
+        androidTest.setRoot('src/test') //note that this is androidTest instead of instrumentTest
+    }
+
+    dexOptions {
+        preDexLibraries = false
+    }
+}
+
+def butterknifeVersion = '+'
+def daggerVersion = '+'
+def ottoVersion = '+';
+
+dependencies {
+//    apt "com.android.support:cardview-v7:21.+";
+    apt "com.squareup.dagger:dagger-compiler:${daggerVersion}"
+    apt "com.jakewharton:butterknife:${butterknifeVersion}"
+
+    compile "com.jakewharton:butterknife:${butterknifeVersion}"
+    compile "com.squareup.dagger:dagger:${daggerVersion}"
+    compile "com.squareup:otto:${ottoVersion}"
+//    compile "com.android.support:cardview-v7:21.+";
+
+    androidTestCompile 'org.robolectric:robolectric:2.+'
+    androidTestCompile 'junit:junit:4.+'
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:19.+'
+    compile 'com.android.support:support-v4:19.1.0'
+
+}
+
+
+androidTest {
+    include '**/*Test.class'
+    maxHeapSize = "2048m"
+}

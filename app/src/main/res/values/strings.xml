@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Mr. Petrol</string>
+    <string name="calculation_tab_header">Calc</string>
+    <string name="history_tab_header">History</string>
+
+    <string name="preview_header">Consumption</string>
+
+    <string name="save_toast_success">Saved</string>
+    <string name="save_toast_error">Saving error</string>
+
+    <string name="changeDate_btn_label">Change Date</string>
+    <string name="save_btn_label">Save calculations</string>
+
+    <string name="calc_gasVolume_label">Refueled:</string>
+    <string name="calc_distance_label">Traveled:</string>
+    <string name="calc_consumption_label">Consumed:</string>
+    <string name="calc_price_label">Fuel price:</string>
+    <string name="calc_totalCost_label">Total cost:</string>
+
+    <string name="calc_gasVolume_unit">l</string>
+    <string name="calc_distance_unit">km</string>
+    <string name="calc_consumption_unit">l/100km</string>
+    <string name="calc_price_unit">$ / l</string>
+    <string name="calc_totalCost_unit">$</string>
+
+    <string name="list_gasVolume_unit">liters</string>
+    <string name="list_distance_unit">km</string>
+    <string name="list_consumption_unit">l/100km</string>
+    <string name="list_price_unit">$/liter</string>
+    <string name="list_totalCost_unit">$$</string>
+
+    <string name="description_placeholder">Extra description</string>
+
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+</resources>

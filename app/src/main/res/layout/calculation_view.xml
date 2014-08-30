@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            style="@style/tile_multiple_states"
+            android:id="@+id/valuesContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TableRow
+                style="@style/calculation_view_table_row" >
+                <TextView
+                    style="@style/calculation_view_label.label"
+                    android:text="@string/calc_gasVolume_label"/>
+
+                <EditText
+                    style="@style/calculation_view_edit_text_value"
+                    android:id="@+id/gasVolumeEditText" />
+                <TextView
+                    style="@style/calculation_view_label.unit"
+                    android:text="@string/calc_gasVolume_unit"/>
+                <ImageButton
+                    android:id="@+id/gasVolumeClear"
+                    style="@style/calculation_view_clear_button" />
+            </TableRow>
+            <TableRow
+                style="@style/calculation_view_table_row">
+                <TextView
+                    style="@style/calculation_view_label.label"
+                    android:text="@string/calc_distance_label"/>
+
+                <EditText
+                    style="@style/calculation_view_edit_text_value"
+                    android:id="@+id/distanceEditText" />
+                <TextView
+                    style="@style/calculation_view_label.unit"
+                    android:text="@string/calc_distance_unit"/>
+                <ImageButton
+                    android:id="@+id/distanceClear"
+                    style="@style/calculation_view_clear_button"/>
+            </TableRow>
+            <TableRow
+                style="@style/calculation_view_table_row">
+                <TextView
+                    style="@style/calculation_view_label.label"
+                    android:text="@string/calc_consumption_label"/>
+
+                <EditText
+                    style="@style/calculation_view_edit_text_value"
+                    android:id="@+id/consumptionEditText" />
+                <TextView
+                    style="@style/calculation_view_label.unit"
+                    android:text="@string/calc_consumption_unit"/>
+                <ImageButton
+                    android:id="@+id/consumptionClear"
+                    style="@style/calculation_view_clear_button" />
+            </TableRow>
+            <TableRow
+                style="@style/calculation_view_table_row">
+                <TextView
+                    style="@style/calculation_view_label.label"
+                    android:text="@string/calc_price_label"/>
+
+                <EditText
+                    style="@style/calculation_view_edit_text_value"
+                    android:id="@+id/priceEditText" />
+                <TextView
+                    style="@style/calculation_view_label.unit"
+                    android:text="@string/calc_price_unit"/>
+                <ImageButton
+                    android:id="@+id/priceClear"
+                    style="@style/calculation_view_clear_button" />
+            </TableRow>
+            <TableRow
+                style="@style/calculation_view_table_row">
+                <TextView
+                    style="@style/calculation_view_label.label"
+                    android:text="@string/calc_totalCost_label"/>
+
+                <EditText
+                    style="@style/calculation_view_edit_text_value"
+                    android:id="@+id/totalCostEditText" />
+                <TextView
+                    style="@style/calculation_view_label.unit"
+                    android:text="@string/calc_totalCost_unit"/>
+                <ImageButton
+                    android:id="@+id/totalCostClear"
+                    style="@style/calculation_view_clear_button"
+                    />
+            </TableRow>
+        </TableLayout>
+
+
+        <LinearLayout
+            style="@style/tile_multiple_states"
+            android:id="@+id/dateContainer"
+            android:clickable="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/changeDateBtn"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="@string/changeDate_btn_label"/>
+                <TextView
+                    android:id="@+id/dateText"
+                    android:layout_toLeftOf="@id/changeDateBtn"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:text="03.11.1989"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/tile_multiple_states"
+            android:id="@+id/descContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:visibility="visible"
+                style="@style/description_text_box"
+                android:hint="@string/description_placeholder"
+                android:id="@+id/descriptionEditText" />
+
+        </LinearLayout>
+
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save_btn_label"
+            android:id="@+id/saveBtn"
+            android:layout_gravity="center_horizontal" />
+
+
+    </LinearLayout>
+    </ScrollView>
