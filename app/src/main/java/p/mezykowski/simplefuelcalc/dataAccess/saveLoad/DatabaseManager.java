@@ -5,7 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Debug;
 import android.provider.ContactsContract;
+import android.util.Log;
 
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -105,7 +107,8 @@ public class DatabaseManager extends SQLiteOpenHelper implements IDatabaseManage
     public void removeConsumptionValues(List<ConsumptionDataObject> selectedItems) {
         SQLiteDatabase db = getWritableDatabase();
         String idList = createIdStringList(selectedItems);
-        db.delete(DatabaseConsts.DB_CONSUMPTIONS_TABLE, DatabaseConsts.ID +" IN ( ? )", new String [] {idList} );
+        int rowsAffected = db.delete(DatabaseConsts.DB_CONSUMPTIONS_TABLE, DatabaseConsts.ID +" IN ( "+ idList + " )", null);
+        Log.w("petrol db", "DELETE, rows affected: "+rowsAffected);
     }
 
     @Override
@@ -113,7 +116,8 @@ public class DatabaseManager extends SQLiteOpenHelper implements IDatabaseManage
         String idString = ""+id;
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = createContentValuesFromConsuption(valuesState);
-        db.update(DatabaseConsts.DB_CONSUMPTIONS_TABLE, values, DatabaseConsts.ID +" = ?", new String[] {idString});
+        int rowsAffected = db.update(DatabaseConsts.DB_CONSUMPTIONS_TABLE, values, DatabaseConsts.ID +" = ?", new String[] {idString});
+        Log.w("petrol db", "DELETE, rows affected: "+rowsAffected);
     }
 
     private String createIdStringList(List<ConsumptionDataObject> items) {

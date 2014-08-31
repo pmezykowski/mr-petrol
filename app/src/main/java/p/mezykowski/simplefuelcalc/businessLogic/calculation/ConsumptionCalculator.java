@@ -56,6 +56,7 @@ public class ConsumptionCalculator implements IConsumptionCalculator {
     @Override
     public void clearValue(ConsumptionDataObject.Keys valueKey) {
         state.setValueIsSet(valueKey, false);
+        state.setValueIsSetManually(valueKey, false);
     }
 
     @Override
