@@ -3,7 +3,6 @@ package p.mezykowski.simplefuelcalc.ui.common.calculationFragment;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -237,9 +236,7 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
 
     void setValue (ConsumptionDataObject.Keys key, double value) {
         beginSilentManipulate();
-        EditText et = keyWithTextEditBindings.get(key);
-        et.setText("" + value);
-        et.setTextColor(getResources().getColor(R.color.calc_green));
+        keyWithTextEditBindings.get(key).setText("" + value);
         endSilentManipulate();
     }
 
@@ -247,10 +244,11 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
     private void initializeEditTexts() {
         createTextEditBindings();
 
-        for (EditText et : textEditWithKeyBindings.keySet()) {
-            et.addTextChangedListener(new EditTextsTextWatcher(et));
-        }
-
+        consumptionET.addTextChangedListener(new EditTextsTextWatcher(consumptionET));
+        gasVolumeET.addTextChangedListener(new EditTextsTextWatcher(gasVolumeET));
+        distanceET.addTextChangedListener(new EditTextsTextWatcher(distanceET));
+        totalCostET.addTextChangedListener(new EditTextsTextWatcher(totalCostET));
+        priceET.addTextChangedListener(new EditTextsTextWatcher(priceET));
         endSilentManipulate();
     }
 
@@ -291,16 +289,9 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
             double value;
 
             valueText = editable.toString().replace(",", ".");
-            if (valueText.equals("")) {
-                getMediator().clearValue(senderKey);
-                return;
-            }
-
             try {
                 value = Double.parseDouble(valueText);
-                keyWithTextEditBindings.get(senderKey).setTextColor(Color.BLACK);
             } catch (Exception e) {
-                keyWithTextEditBindings.get(senderKey).setTextColor(Color.RED);
                 return;
             }
 

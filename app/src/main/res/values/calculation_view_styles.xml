@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="calc_green">#ff0a9b00</color>
-
     <style name="calculation_view_label">
         <item name="android:textSize">15dp</item>
         <item name="android:layout_width">wrap_content</item>
