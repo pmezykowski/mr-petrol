@@ -40,6 +40,11 @@ public class HistoryFragmentMediator extends FragmentMediatorBase<HistoryFragmen
     protected void afterBind() {
         super.afterBind();
         eventBus.register(this);
+        recreateValuesList();
+    }
+
+    private void recreateValuesList() {
+        historyKeeper.loadSavedHistory();
         refreshListValues();
     }
 
