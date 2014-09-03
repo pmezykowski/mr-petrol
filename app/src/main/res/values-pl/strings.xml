@@ -24,10 +24,10 @@
     <string name="calc_price_unit">PLN / l</string>
     <string name="calc_totalCost_unit">PLN</string>
 
-    <string name="list_gasVolume_unit">litrów</string>
+    <string name="list_gasVolume_unit">l</string>
     <string name="list_distance_unit">km</string>
     <string name="list_consumption_unit">l/100km</string>
-    <string name="list_price_unit">PLN/litr</string>
+    <string name="list_price_unit">PLN/l</string>
     <string name="list_totalCost_unit">PLN</string>
     
     <string name="description_placeholder">Dodatkowy opis</string>

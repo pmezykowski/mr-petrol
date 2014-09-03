@@ -4,29 +4,35 @@
 
     <style name="calculation_view_label">
         <item name="android:textSize">15dp</item>
+        <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="calculation_view_label.label" parent="calculation_view_label">
-        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginLeft">5dp</item>
         <item name="android:gravity">right</item>
+        <item name="android:layout_width">100dp</item>
     </style>
 
     <style name="calculation_view_label.unit" parent="calculation_view_label">
         <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_width">65dp</item>
     </style>
 
     <style name="calculation_view_clear_button">
+        <item name="android:layout_alignParentRight">true</item>
         <item name="android:gravity">right</item>
         <item name="android:layout_width">40dp</item>
         <item name="android:layout_height">35dp</item>
         <item name="android:scaleType">centerCrop</item>
+
         <item name="android:src">@android:drawable/ic_input_delete</item>
     </style>
 
     <style name="calculation_view_edit_text_value">
-        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:inputType">numberDecimal</item>
         <item name="android:textColor">@drawable/edit_text_selector</item>

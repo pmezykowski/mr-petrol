@@ -75,7 +75,16 @@ public class CalculationFragmentMediator extends FragmentMediatorBase<Calculatio
         Toast.makeText(this.getFragment().getActivity().getApplicationContext(), R.string.save_toast_success, Toast.LENGTH_SHORT).show();
     }
 
-    public void updateDataObject(ConsumptionDataObject dataObject) {
-        saveData(dataObject);
+    public void updateDataObject(ConsumptionDataObject objectToSave) {
+        ConsumptionDataObject calcObject = calculatorEngine.getStateObjectCopy();
+        objectToSave.cloneValues(calcObject);
+        saveData(objectToSave);
+    }
+
+    public void populateWithData(ConsumptionDataObject dataObject) {
+        calculatorEngine.clear();
+        for (ConsumptionDataObject.Keys key : dataObject.getUsedValueKeys()) {
+            calculatorEngine.setValue(key, dataObject.getValue(key));
+        }
     }
 }

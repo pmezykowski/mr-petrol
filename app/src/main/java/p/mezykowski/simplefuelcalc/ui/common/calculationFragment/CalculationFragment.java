@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -100,6 +101,7 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
 
     public void populateWithData(ConsumptionDataObject data) {
         this.dataObject = data;
+        this.getMediator().populateWithData(this.dataObject);
         beginSilentManipulate();
         for (ConsumptionDataObject.Keys key : dataObject.getUsedValueKeys()) {
             keyWithTextEditBindings.get(key).setText(""+data.getValue(key));
@@ -203,7 +205,9 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
                     onClearBtnClicked((ImageButton) view);
                 }
             });
+
         }
+
     }
 
     private void onClearBtnClicked(ImageButton button) {

@@ -9,94 +9,127 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TableLayout
+        <LinearLayout
             style="@style/tile_multiple_states"
             android:id="@+id/valuesContainer"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-            <TableRow
-                style="@style/calculation_view_table_row" >
-                <TextView
-                    style="@style/calculation_view_label.label"
-                    android:text="@string/calc_gasVolume_label"/>
-
-                <EditText
-                    style="@style/calculation_view_edit_text_value"
-                    android:id="@+id/gasVolumeEditText" />
-                <TextView
-                    style="@style/calculation_view_label.unit"
-                    android:text="@string/calc_gasVolume_unit"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
                 <ImageButton
                     android:id="@+id/gasVolumeClear"
                     style="@style/calculation_view_clear_button" />
-            </TableRow>
-            <TableRow
-                style="@style/calculation_view_table_row">
                 <TextView
+                    android:id="@+id/gasVolume_label"
+                    android:layout_alignParentLeft="true"
                     style="@style/calculation_view_label.label"
-                    android:text="@string/calc_distance_label"/>
+                    android:text="@string/calc_gasVolume_label"/>
 
-                <EditText
-                    style="@style/calculation_view_edit_text_value"
-                    android:id="@+id/distanceEditText" />
                 <TextView
+                    android:id="@+id/gasVolume_unit"
+                    android:layout_toLeftOf="@id/gasVolumeClear"
                     style="@style/calculation_view_label.unit"
-                    android:text="@string/calc_distance_unit"/>
+                    android:text="@string/calc_gasVolume_unit"/>
+                <EditText
+                    android:layout_toRightOf="@id/gasVolume_label"
+                    android:layout_toLeftOf="@id/gasVolume_unit"
+                    style="@style/calculation_view_edit_text_value"
+                    android:id="@+id/gasVolumeEditText" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
                 <ImageButton
                     android:id="@+id/distanceClear"
                     style="@style/calculation_view_clear_button"/>
-            </TableRow>
-            <TableRow
-                style="@style/calculation_view_table_row">
                 <TextView
+                    android:id="@+id/distance_label"
                     style="@style/calculation_view_label.label"
-                    android:text="@string/calc_consumption_label"/>
+                    android:text="@string/calc_distance_label"/>
 
-                <EditText
-                    style="@style/calculation_view_edit_text_value"
-                    android:id="@+id/consumptionEditText" />
                 <TextView
+                    android:id="@+id/distance_unit"
+                    android:layout_toLeftOf="@id/distanceClear"
                     style="@style/calculation_view_label.unit"
-                    android:text="@string/calc_consumption_unit"/>
+                    android:text="@string/calc_distance_unit"/>
+                <EditText
+                    android:layout_toRightOf="@id/distance_label"
+                    android:layout_toLeftOf="@id/distance_unit"
+                    style="@style/calculation_view_edit_text_value"
+                    android:id="@+id/distanceEditText" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
                 <ImageButton
                     android:id="@+id/consumptionClear"
                     style="@style/calculation_view_clear_button" />
-            </TableRow>
-            <TableRow
-                style="@style/calculation_view_table_row">
                 <TextView
+                    android:id="@+id/consumption_label"
                     style="@style/calculation_view_label.label"
-                    android:text="@string/calc_price_label"/>
+                    android:text="@string/calc_consumption_label"/>
 
-                <EditText
-                    style="@style/calculation_view_edit_text_value"
-                    android:id="@+id/priceEditText" />
                 <TextView
+                    android:layout_toLeftOf="@id/consumptionClear"
+                    android:id="@+id/consumption_unit"
                     style="@style/calculation_view_label.unit"
-                    android:text="@string/calc_price_unit"/>
+                    android:text="@string/calc_consumption_unit"/>
+                <EditText
+                    android:layout_toRightOf="@id/consumption_label"
+                    android:layout_toLeftOf="@id/consumption_unit"
+                    style="@style/calculation_view_edit_text_value"
+                    android:id="@+id/consumptionEditText" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
                 <ImageButton
                     android:id="@+id/priceClear"
                     style="@style/calculation_view_clear_button" />
-            </TableRow>
-            <TableRow
-                style="@style/calculation_view_table_row">
                 <TextView
+                    android:id="@+id/price_label"
                     style="@style/calculation_view_label.label"
-                    android:text="@string/calc_totalCost_label"/>
+                    android:text="@string/calc_price_label"/>
 
-                <EditText
-                    style="@style/calculation_view_edit_text_value"
-                    android:id="@+id/totalCostEditText" />
                 <TextView
+                    android:layout_toLeftOf="@id/priceClear"
+                    android:id="@+id/price_unit"
                     style="@style/calculation_view_label.unit"
-                    android:text="@string/calc_totalCost_unit"/>
+                    android:text="@string/calc_price_unit"/>
+                <EditText
+                    android:layout_toRightOf="@id/price_label"
+                    android:layout_toLeftOf="@id/price_unit"
+                    style="@style/calculation_view_edit_text_value"
+                    android:id="@+id/priceEditText" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
                 <ImageButton
                     android:id="@+id/totalCostClear"
-                    style="@style/calculation_view_clear_button"
-                    />
-            </TableRow>
-        </TableLayout>
-
+                    style="@style/calculation_view_clear_button" />
+                <TextView
+                    android:id="@+id/totalCost_label"
+                    style="@style/calculation_view_label.label"
+                    android:text="@string/calc_totalCost_label"/>
+                <TextView
+                    android:layout_toLeftOf="@id/totalCostClear"
+                    android:id="@+id/totalCost_unit"
+                    style="@style/calculation_view_label.unit"
+                    android:text="@string/calc_totalCost_unit"/>
+                <EditText
+                    android:layout_toRightOf="@id/totalCost_label"
+                    android:layout_toLeftOf="@id/totalCost_unit"
+                    style="@style/calculation_view_edit_text_value"
+                    android:id="@+id/totalCostEditText" />
+            </RelativeLayout>
+        </LinearLayout>
 
         <LinearLayout
             style="@style/tile_multiple_states"

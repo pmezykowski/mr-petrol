@@ -59,7 +59,10 @@ public class HistoryArrayAdapter extends ArrayAdapter<ConsumptionDataObject> {
         holder.consumption.setText(String.format("%.2f",currentObj.getValue(ConsumptionDataObject.Keys.Consumption)));
         holder.price.setText(String.format("%.2f",currentObj.getValue(ConsumptionDataObject.Keys.Price)));
         holder.cost.setText(String.format("%.1f",currentObj.getValue(ConsumptionDataObject.Keys.TotalCost)));
-        holder.checkedCheckBox.setChecked(currentObj.isSelected());
+        if (holder.checkedCheckBox != null) {
+            holder.checkedCheckBox.setChecked(currentObj.isSelected());
+            holder.checkedCheckBox.setVisibility(currentObj.isSelected() ? View.VISIBLE : View.INVISIBLE);
+        }
         if (holder.desc != null) {
             holder.desc.setText(currentObj.getDescription());
         }
@@ -69,7 +72,8 @@ public class HistoryArrayAdapter extends ArrayAdapter<ConsumptionDataObject> {
             holder.dateDayMonth.setText("?");
         } else {
             SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd.MM");
-            SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
+            SimpleDateFormat yearFormat = new SimpleDateFormat(".yyyy");
+
             holder.dateYear.setText(yearFormat.format(date));
             holder.dateDayMonth.setText(dayMonthFormat.format(date));
         }

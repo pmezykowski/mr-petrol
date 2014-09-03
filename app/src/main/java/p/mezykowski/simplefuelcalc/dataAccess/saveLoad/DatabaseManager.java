@@ -117,7 +117,7 @@ public class DatabaseManager extends SQLiteOpenHelper implements IDatabaseManage
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = createContentValuesFromConsuption(valuesState);
         int rowsAffected = db.update(DatabaseConsts.DB_CONSUMPTIONS_TABLE, values, DatabaseConsts.ID +" = ?", new String[] {idString});
-        Log.w("petrol db", "DELETE, rows affected: "+rowsAffected);
+        Log.w("petrol db", "UPDATES, rows affected: "+rowsAffected);
     }
 
     private String createIdStringList(List<ConsumptionDataObject> items) {
