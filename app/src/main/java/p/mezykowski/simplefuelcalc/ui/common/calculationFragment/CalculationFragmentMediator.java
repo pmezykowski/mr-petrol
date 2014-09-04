@@ -87,4 +87,8 @@ public class CalculationFragmentMediator extends FragmentMediatorBase<Calculatio
             calculatorEngine.setValue(key, dataObject.getValue(key));
         }
     }
+
+    public boolean isValueSetManually(ConsumptionDataObject.Keys keyType) {
+        return calculatorEngine.getStateObjectCopy().isValueSetManually(keyType);
+    }
 }
