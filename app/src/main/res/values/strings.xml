@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mr. Petrol</string>
+    <string name="app_name">Mr Petrol</string>
     <string name="calculation_tab_header">Calc</string>
     <string name="history_tab_header">History</string>
 
@@ -23,10 +23,10 @@
     <string name="calc_price_unit">$ / l</string>
     <string name="calc_totalCost_unit">$</string>
 
-    <string name="list_gasVolume_unit">liters</string>
+    <string name="list_gasVolume_unit">l</string>
     <string name="list_distance_unit">km</string>
     <string name="list_consumption_unit">l/100km</string>
-    <string name="list_price_unit">$/liter</string>
+    <string name="list_price_unit">$/l</string>
     <string name="list_totalCost_unit">$$</string>
 
     <string name="description_placeholder">Extra description</string>

@@ -3,17 +3,22 @@ package p.mezykowski.simplefuelcalc.ui.common.calculationFragment;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -34,6 +39,9 @@ import pl.pawelmezykowski.myapplication.R;
 public class CalculationFragment extends FragmentBase<CalculationFragmentMediator> {
 
     private View view;
+
+    @InjectView(R.id.calculation_layout)
+    LinearLayout mainLayout;
 
     @InjectView(R.id.distanceEditText)
     EditText distanceET;
@@ -100,6 +108,7 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
 
     public void populateWithData(ConsumptionDataObject data) {
         this.dataObject = data;
+        this.getMediator().populateWithData(this.dataObject);
         beginSilentManipulate();
         for (ConsumptionDataObject.Keys key : dataObject.getUsedValueKeys()) {
             keyWithTextEditBindings.get(key).setText(""+data.getValue(key));
@@ -114,6 +123,9 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
 
     public void setEditEnabled(boolean enabled) {
         for (EditText et : textEditWithKeyBindings.keySet()) {
+            if (!enabled) {
+                et.setTextColor(getResources().getColorStateList(R.color.edit_text_selector));
+            }
             et.setEnabled(enabled);
         }
         for (ImageButton et : clearBtnsWithKeyBindings.keySet()) {
@@ -130,6 +142,8 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
 
         changeDateButton.setVisibility(enabled ? View.VISIBLE : View.INVISIBLE);
         saveBtnBtn.setVisibility(View.GONE);
+
+
     }
 
     private void showDatePicker() {
@@ -177,10 +191,20 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.calculation_view, container, false);
         ButterKnife.inject(this, view);
-        initializeEditTexts();
-        initializeButtons();
+        initializeViews();
         updateCalendar();
         return view;
+    }
+
+    private void initializeViews() {
+        initializeMainLayout();
+        initializeEditTexts();
+        initializeButtons();
+    }
+
+    private void initializeMainLayout() {
+        this.mainLayout.setFocusable(true);
+        this.mainLayout.setFocusableInTouchMode(true);
     }
 
     private HashMap<ConsumptionDataObject.Keys, ImageButton> keyWithClearBtnsBindings;
@@ -203,12 +227,22 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
                     onClearBtnClicked((ImageButton) view);
                 }
             });
+
         }
+
     }
 
     private void onClearBtnClicked(ImageButton button) {
         ConsumptionDataObject.Keys key = clearBtnsWithKeyBindings.get(button);
         getMediator().clearValue(key);
+        removeFocus();
+    }
+
+    private void removeFocus() {
+        this.mainLayout.requestFocus();
+        InputMethodManager imm = (InputMethodManager)this.getActivity().getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(this.mainLayout.getWindowToken(), 0);
     }
 
     private void putClearBtnBinding(ConsumptionDataObject.Keys key, ImageButton clearButton) {
@@ -249,6 +283,20 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
 
         for (EditText et : textEditWithKeyBindings.keySet()) {
             et.addTextChangedListener(new EditTextsTextWatcher(et));
+            et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View view, boolean hasFocus) {
+                    EditText editText = (EditText) view;
+                    ConsumptionDataObject.Keys keyType = textEditWithKeyBindings.get(editText);
+                    if (!getMediator().isValueSetManually(keyType)) {
+                        if (hasFocus) {
+                            editText.setText("");
+                        } else if (editText.getText().toString().equals("")) {
+                            getMediator().clearValue(keyType);
+                        }
+                    }
+                }
+            });
         }
 
         endSilentManipulate();
@@ -291,10 +339,10 @@ public class CalculationFragment extends FragmentBase<CalculationFragmentMediato
             double value;
 
             valueText = editable.toString().replace(",", ".");
-            if (valueText.equals("")) {
-                getMediator().clearValue(senderKey);
-                return;
-            }
+//            if (valueText.equals("")) {
+//                getMediator().clearValue(senderKey);
+//                return;
+//            }
 
             try {
                 value = Double.parseDouble(valueText);

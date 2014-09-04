@@ -59,6 +59,12 @@ public class HistoryFragment extends FragmentBase<HistoryFragmentMediator> {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        this.adapter.notifyDataSetChanged();
+    }
+
     private void initializeView() {
 
         this.historyListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -206,7 +212,7 @@ public class HistoryFragment extends FragmentBase<HistoryFragmentMediator> {
     }
 
     private void clearSelectedItems() {
-        for (ConsumptionDataObject consumptionObject : selectedItems) {
+          for (ConsumptionDataObject consumptionObject : selectedItems) {
             consumptionObject.setSelected(false);
         }
         selectedItems.clear();

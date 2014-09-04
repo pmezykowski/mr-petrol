@@ -54,7 +54,7 @@ public class PreviewActivity extends ActionbarActivityCompatBase<PreviewMediator
         boolean inEditMode = getIntent().getBooleanExtra(INTENT_IN_EDIT_MODE_ARG, false);
 
         setContentView(R.layout.preview_view_layout);
-        getSupportActionBar().setTitle("Consumption");
+        getSupportActionBar().setTitle(R.string.consumption_activity_name);
         calculationFragment = (CalculationFragment) getSupportFragmentManager().findFragmentById(R.id.calcFragment);
         calculationFragment.populateWithData(viewedObject);
         calculationFragment.setEditEnabled(inEditMode);

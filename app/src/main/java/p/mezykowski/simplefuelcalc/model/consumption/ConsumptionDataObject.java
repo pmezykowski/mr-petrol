@@ -163,6 +163,13 @@ public class ConsumptionDataObject {
         return state;
     }
 
+    public void cloneValues(ConsumptionDataObject cloneSource) {
+        for (Keys key : cloneSource.getUsedValueKeys()) {
+            this.setValue(key, cloneSource.getValue(key));
+        }
+    }
+
+
     @Override
     public String toString() {
         return this.getValue(Keys.Distance)+" km,    " +
