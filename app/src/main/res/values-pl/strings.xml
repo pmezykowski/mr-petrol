@@ -32,6 +32,8 @@
     
     <string name="description_placeholder">Dodatkowy opis</string>
     
+    <string name="consumption_activity_name">Spalanie</string>
+    
     <string name="edit">Edytuj</string>
     <string name="delete">Usuń</string>
 </resources>

@@ -18,7 +18,7 @@
 
     <style name="calculation_view_label.unit" parent="calculation_view_label">
         <item name="android:layout_marginRight">10dp</item>
-        <item name="android:layout_width">65dp</item>
+        <item name="android:layout_width">70dp</item>
     </style>
 
     <style name="calculation_view_clear_button">

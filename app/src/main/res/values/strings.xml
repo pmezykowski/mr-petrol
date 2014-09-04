@@ -29,6 +29,8 @@
     <string name="list_price_unit">$/l</string>
     <string name="list_totalCost_unit">$$</string>
 
+    <string name="consumption_activity_name">Consumption</string>
+
     <string name="description_placeholder">Extra description</string>
 
     <string name="edit">Edit</string>
